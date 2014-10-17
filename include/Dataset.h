@@ -28,6 +28,9 @@ TString Dataset::fullDatasetName(unsigned int id){
   if (id == 3) name += "VBF_inv_8000_Nminus2_8TeV_ZTune_PU.root";
   if (id == 4) name += "VBF_inv_8000_precut_ZTune.root";
   if (id == 5) name += "VBF_inv_8000_precut_ZTune_PU.root";
+  if (id == 6) name += "VBF_inv_8000_precut_ZTune_PU_v2.root";
+
+  if (id == 10)name += "h_qqH_TT_125_15_r1_histoOUTPUT.PU21.root";
   
   return name;
   
@@ -43,8 +46,10 @@ TString Dataset::toTString(unsigned int id){
   if (id == 3) str += "SM Inv Higgs 125 GeV, ZTune & Pile Up";
   if (id == 4) str += "SM Inv Higgs 125 GeV, PreCut ZTune";
   if (id == 5) str += "SM Inv Higgs 125 GeV, PreCut ZTune & Pile Up";
-
+  if (id == 6) str += "SM Inv Higgs 125 GeV, PreCut ZTune & Pile Up 0Pt Threshold";
   
+  if (id ==10) str += "SM Inv Higgs 125 GeV, POWHEG";
+
   return str;
   
 }
@@ -54,18 +59,20 @@ TString Dataset::pdfTitler(unsigned int id){
   
   TString title("");
   if(id ==0) title += "Nminus1Comparison_vbfH_8TeV_ZTune";
-  if(id ==1) title += "Nminus1Comparison_vbfH_8TeV_ZTune_PU";
+  if(id ==1) title += "Nminus1Comparison_vbfH_8TeV_ZTune_PU_v2";
   if(id ==2) title += "preCutDistributions_vbfH_8TeV";
   if(id ==3) title += "Nminus2Comparison_vbfH_8TeV_ZTune_PU";
   if(id ==4) title += "preCut_vbf_8TeV_ZTune";
   if(id ==5) title += "preCut_vbf_8TeV_ZTune_PU";
+  if(id ==6) title += "preCut_vbf_8TeV_ZTune_PU_0PtThreshold";
+  if(id ==10)title += "Nminus1Dists_POWHEG_DELPHES_h_qqH_TT_125_12_r1";
 
   return title;
 }
 
 void Dataset::checkId(unsigned int id){
   
-  if(id!=0 && id!=1 && id!=2 && id!=3 && id!=4 && id!=5 && id!=6){
+  if(id!=0 && id!=1 && id!=2 && id!=3 && id!=4 && id!=5 && id!=6 && id!=10){
     std::cerr << "\nERROR CAN'T OPEN FILE" << std::endl;
     throw std::exception();
   }
